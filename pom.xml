@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.top</groupId>
+  <artifactId>springcloud</artifactId>
+  <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>pay-provider</module>
+        <module>order</module>
+        <module>cloud-api-common</module>
+        <module>cloud-eureka-server</module>
+        <module>cloud-eureka-server-slave</module>
+    </modules>
+    <packaging>pom</packaging>
+
+<!--  统一管理jar包版本   -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compile.source>1.8</maven.compile.source>
+    <maven.compile.taget>1.8</maven.compile.taget>
+    <junit.version>4.12</junit.version>
+    <log4j.version>1.2.17</log4j.version>
+    <lombok.version>1.18.12</lombok.version>
+    <mysql.version>8.0.19</mysql.version>
+    <druid.version>1.1.10</druid.version>
+    <mybatis.spring.boot.version>2.1.0</mybatis.spring.boot.version>
+  </properties>
+
+
+  <dependencyManagement>
+    <dependencies>
+<!--      springboot 2.2.2 -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+<!--      springCloud Hoxton-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Hoxton.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+<!--      springCloud alibaba-->
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+        <version>0.2.2.RELEASE</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+<!--      mysql  -->
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>${mysql.version}</version>
+      </dependency>
+<!-- 数据库连接池   druid-->
+      <dependency>
+        <groupId>com.alibaba</groupId>
+        <artifactId>druid-spring-boot-starter</artifactId>
+        <version>${druid.version}</version>
+      </dependency>
+<!--  mybatis-->
+      <dependency>
+        <groupId>org.mybatis.spring.boot</groupId>
+        <artifactId>mybatis-spring-boot-starter</artifactId>
+        <version>${mybatis.spring.boot.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>${log4j.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <!--  <name>Maven</name>-->
+<!--  &lt;!&ndash; FIXME change it to the project's website &ndash;&gt;-->
+<!--  <url>http://maven.apache.org/</url>-->
+<!--  <inceptionYear>2001</inceptionYear>-->
+
+<!--  <distributionManagement>-->
+<!--    <site>-->
+<!--      <id>website</id>-->
+<!--      <url>scp://webhost.company.com/www/website</url>-->
+<!--    </site>-->
+<!--  </distributionManagement>-->
+
+<!--  <properties>-->
+<!--    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--  </properties>-->
+
+<!--  <build>-->
+<!--    <pluginManagement>&lt;!&ndash; lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) &ndash;&gt;-->
+<!--      <plugins>-->
+<!--        <plugin>-->
+<!--          <artifactId>maven-clean-plugin</artifactId>-->
+<!--          <version>3.1.0</version>-->
+<!--        </plugin>-->
+<!--        <plugin>-->
+<!--          <artifactId>maven-site-plugin</artifactId>-->
+<!--          <version>3.7.1</version>-->
+<!--        </plugin>-->
+<!--        <plugin>-->
+<!--          <artifactId>maven-project-info-reports-plugin</artifactId>-->
+<!--          <version>3.0.0</version>-->
+<!--        </plugin>-->
+<!--      </plugins>-->
+<!--    </pluginManagement>-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-site-plugin</artifactId>-->
+<!--        <configuration>-->
+<!--          <locales>en,fr</locales>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </build>-->
+
+<!--  <reporting>-->
+<!--    <plugins>-->
+<!--      <plugin>-->
+<!--        <artifactId>maven-project-info-reports-plugin</artifactId>-->
+<!--      </plugin>-->
+<!--    </plugins>-->
+<!--  </reporting>-->
+<!--</project>-->
+</project>
