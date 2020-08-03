@@ -1,0 +1,7 @@
+eureka:
+  client:
+    # 注册到 eureka server
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka8090.com:8090/eureka,http://eureka8091.com:8091/eureka
