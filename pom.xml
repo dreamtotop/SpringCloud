@@ -13,6 +13,7 @@
         <module>cloud-api-common</module>
         <module>cloud-eureka-server</module>
         <module>cloud-eureka-server-slave</module>
+        <module>pay-provider01</module>
     </modules>
     <packaging>pom</packaging>
 
