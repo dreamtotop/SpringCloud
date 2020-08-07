@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.top.mapper.PaymentMapper">
+
+    <resultMap id="baseMap" type="org.top.model.Payment">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="serial" column="serial" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="baseSql">
+        id,serial
+    </sql>
+
+    <insert id="create" parameterType="org.top.model.Payment" useGeneratedKeys="true" keyProperty="id">
+        insert into payment(serial) values(#{serial})
+    </insert>
+
+    <select id="queryById" resultMap="baseMap" parameterType="long">
+        select * from payment
+        where id = #{id}
+    </select>
+
+</mapper>
