@@ -5,3 +5,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka8090.com:8090/eureka,http://eureka8091.com:8091/eureka
+  # 主机名称的配置
+  instance:
+    instance-id: pay-provider8081
+    prefer-ip-address: true
