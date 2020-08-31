@@ -18,6 +18,7 @@
         <module>order-consume-zookeeper</module>
         <module>pay-provider-consul</module>
         <module>order-consul</module>
+        <module>order-ribbon</module>
     </modules>
     <packaging>pom</packaging>
 
