@@ -1,6 +1,7 @@
 package org.top.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.top.model.Payment;
 import org.top.response.CommonResult;
@@ -12,6 +13,9 @@ public class PaymentController {
 
     @Autowired
     private PaymentService paymentService;
+
+    @Value("${server.port}")
+    private String serverPort;
 
     @RequestMapping(method = RequestMethod.POST,value = "/add")
     public CommonResult createPayment(@RequestBody Payment payment){
@@ -25,6 +29,9 @@ public class PaymentController {
         return payment != null ? CommonResult.ok(payment) : CommonResult.error(400,"payment不存在");
     }
 
-
+    @GetMapping("/get/serverPort")
+    public String getServerPort(){
+        return serverPort;
+    }
 
 }

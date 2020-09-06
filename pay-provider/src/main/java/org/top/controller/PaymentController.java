@@ -2,6 +2,7 @@ package org.top.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,9 @@ public class PaymentController {
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @RequestMapping(method = RequestMethod.POST,value = "/add")
     public CommonResult createPayment(@RequestBody Payment payment){
         Integer code = paymentService.createPayment(payment);
@@ -37,7 +41,10 @@ public class PaymentController {
         return payment != null ? CommonResult.ok(payment) : CommonResult.error(400,"payment不存在");
     }
 
-
+    /**
+     * 获取注册在Eureka上的服务
+     * @return
+     */
     @RequestMapping(method = RequestMethod.GET,value = "/discovery")
     public Object discovery(){
         // 获取注册在Eureka上的服务列表
@@ -51,6 +58,15 @@ public class PaymentController {
             +instance.getPort()+"\t"+instance.getUri());
         }
         return this.discoveryClient;
+    }
+
+    /***
+     * 获取服务端口
+     * @return
+     */
+    @GetMapping("/get/serverPort")
+    public String getServerPort(){
+        return serverPort;
     }
 
 }
