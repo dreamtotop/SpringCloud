@@ -19,6 +19,7 @@
         <module>pay-provider-consul</module>
         <module>order-consul</module>
         <module>order-ribbon</module>
+        <module>order-feigh</module>
     </modules>
     <packaging>pom</packaging>
 
