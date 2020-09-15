@@ -21,6 +21,7 @@
         <module>order-ribbon</module>
         <module>order-feigh</module>
         <module>pay-provider-hystrix</module>
+        <module>order-feign-hystrix</module>
     </modules>
     <packaging>pom</packaging>
 
