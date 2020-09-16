@@ -1,5 +1,7 @@
 package org.top.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;
@@ -21,6 +23,9 @@ public class PaymentService {
      * @param id
      * @return
      */
+    @HystrixCommand(fallbackMethod = "getPaymentInfo_timeoutHandler",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "2000")
+    })
     public String getPaymentInfo_timeout(Integer id){
 
         try {
@@ -29,5 +34,9 @@ public class PaymentService {
             e.printStackTrace();
         }
         return "线程池 "+Thread.currentThread().getName()+"payment_timeout id: "+id;
+    }
+
+    public String getPaymentInfo_timeoutHandler(Integer id){
+        return "服务降级：线程池 "+Thread.currentThread().getName()+"系统繁忙，请稍后再试: "+id;
     }
 }
