@@ -24,19 +24,19 @@ public class PaymentService {
      * @return
      */
     @HystrixCommand(fallbackMethod = "getPaymentInfo_timeoutHandler",commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "2000")
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "5000")
     })
     public String getPaymentInfo_timeout(Integer id){
 
         try {
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "线程池 "+Thread.currentThread().getName()+"payment_timeout id: "+id;
+        return "线程池 "+Thread.currentThread().getName()+" payment_timeout id: "+id;
     }
 
     public String getPaymentInfo_timeoutHandler(Integer id){
-        return "服务降级：线程池 "+Thread.currentThread().getName()+"系统繁忙，请稍后再试: "+id;
+        return "服务降级：线程池 "+Thread.currentThread().getName()+"8089系统繁忙，请稍后再试: "+id;
     }
 }
