@@ -23,6 +23,7 @@
         <module>pay-provider-hystrix</module>
         <module>order-feign-hystrix</module>
         <module>order-feign-hystrix-reform</module>
+        <module>cloud-consumer-hystrix-dashboard</module>
     </modules>
     <packaging>pom</packaging>
 

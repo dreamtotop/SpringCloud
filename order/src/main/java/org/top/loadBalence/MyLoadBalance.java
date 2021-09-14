@@ -18,12 +18,12 @@ public class MyLoadBalance implements LoadBalancer
      * CAS实现
      * @return
      */
-    private int getAndIncrement(){
+    private final int getAndIncrement(){
         int current;
         int next;
         do{
             current = this.atomic.get();
-            next = current+1;
+            next = current > 214748647 ? 0 : current+1;
         }while(!this.atomic.compareAndSet(current,next));
         log.info("******第几次访问 "+next);
         return next;

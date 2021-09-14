@@ -1,5 +1,6 @@
 package org.top.myRule;
 
+import com.netflix.loadbalancer.BestAvailableRule;
 import com.netflix.loadbalancer.IRule;
 import com.netflix.loadbalancer.RandomRule;
 import org.springframework.context.annotation.Bean;
@@ -14,4 +15,9 @@ public class MySelfRule {
     public IRule myRule(){
         return new RandomRule();
     }
+
+//    @Bean
+//    public IRule myRule1(){
+//        return new BestAvailableRule();
+//    }
 }
