@@ -24,6 +24,7 @@
         <module>order-feign-hystrix</module>
         <module>order-feign-hystrix-reform</module>
         <module>cloud-consumer-hystrix-dashboard</module>
+        <module>cloud-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
