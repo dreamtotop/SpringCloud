@@ -25,6 +25,8 @@
         <module>order-feign-hystrix-reform</module>
         <module>cloud-consumer-hystrix-dashboard</module>
         <module>cloud-gateway</module>
+        <module>cloud-config-center</module>
+        <module>cloud-client-config</module>
     </modules>
     <packaging>pom</packaging>
 

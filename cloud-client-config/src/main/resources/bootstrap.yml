@@ -1,0 +1,19 @@
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      uri: http://127.0.0.1:3344 # /配置中心
+      name: config # 配置文件名称
+      profile: dev  # 读取后缀名称
+      label: main  # 分支名称
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka8090.com:8090/eureka
