@@ -17,3 +17,13 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka8090.com:8090/eureka
+
+# 暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+#  curl -X POST "http://localhost:3355/actuator/refresh" 更改配置后需要手动刷新
