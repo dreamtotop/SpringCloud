@@ -30,6 +30,7 @@
         <module>cloud-client-config-3366</module>
         <module>cloud-stream-rabbitmq-provider8801</module>
         <module>cloud-stream-rabbitmq-consume8802</module>
+        <module>cloud-stream-rabbitmq-consume8803</module>
     </modules>
     <packaging>pom</packaging>
 

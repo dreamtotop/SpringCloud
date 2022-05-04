@@ -1,5 +1,5 @@
 server:
-  port: 8802
+  port: 8803
 
 spring:
   application:
@@ -22,7 +22,7 @@ spring:
           destination: studyExchange   #定义Exchange
           content-type: application/json  # 设置消息类型
           binder: default-Rabbit    # 设置绑定的消息服务
-          group: consumeA  # 消费者
+          group: consumeA  # 消费者分组
   rabbitmq:
     port: 5672
     host: 192.168.56.102
@@ -38,5 +38,5 @@ eureka:
   instance:
     lease-expiration-duration-in-seconds: 5
     lease-renewal-interval-in-seconds: 2  # 心跳的时间间隔
-    instance-id: receive-8802.com
+    instance-id: receive-8803.com
     prefer-ip-address: true
