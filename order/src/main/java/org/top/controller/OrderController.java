@@ -54,4 +54,10 @@ public class OrderController {
         URI uri = instance.getUri();
         return restTemplate.getForObject(uri+"/payment/get/serverPort",String.class);
     }
+
+    @GetMapping("/zipkin")
+    public String getPaymentZipkin(){
+        String result = restTemplate.getForObject("http://127.0.0.1:8081" + "/payment/zipkin", String.class);
+        return result;
+    }
 }
