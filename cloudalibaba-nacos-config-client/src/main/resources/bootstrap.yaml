@@ -8,6 +8,8 @@ spring:
       config:
         file-extension: yaml # 指定yaml格式
         server-addr: localhost:8848   #nacos服务配置地址
+        #group: TEST_GROUP  # 获取指定配置组信息
+        #namespace:  -504e-4774-8a2f-9f605332894c 命名空间
       discovery:
         server-addr: localhost:8848  #nacos服务注册地址
 
