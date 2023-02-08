@@ -37,6 +37,9 @@
         <module>cloudalibaba-nacos-config-client</module>
         <module>cloudalibaba-sentinel-service</module>
         <module>cloudalibaba-consume-order-openfeign</module>
+        <module>cloud-sentinel</module>
+        <module>gateway</module>
+        <module>gateway-order</module>
     </modules>
     <packaging>pom</packaging>
 

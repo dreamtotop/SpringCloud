@@ -6,11 +6,13 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: payment_routh
+        - id: payment_routh  # 路由的唯一标识
           #uri: http://localhost:8081
           uri: lb://pay-provider
           predicates:
-            - Path=/payment/get/**
+            - Path=/pay-service/payment/get/**
+          filters:
+            - StripPrefix=1    # 取除路径   /pay-service/payment/get中的 /pay-service
       discovery:
         locator:
           enabled: true  #开启从注册中心动态生成路由的功能，用微服务名进行路由
